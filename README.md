@@ -46,6 +46,8 @@ z.valueOf() // 123
 ```
 
 ##### 可以自定义一个valueOf方法覆盖原本的，类同toString
+
+##### valueOf比toString优先级更高
 ```
 var object = {
   toString:function(){
@@ -64,22 +66,26 @@ alert(object==={}) // false
 alert(object=='test') // 弹出false 控制台valueOf toString
 alert(object==='test') // false
 ```
-例如：
+
 ```
 function fn () {
   return 20;
 }
 console.log(fn + 10)
 ```
-结果：
+返回结果：
 function fn () {
   return 20;
 }10
+
+```
 console.log(fn + 'hello')
+```
 结果：
 function fn () {
   return 20;
 }hello
+
 
 ```
 fn.toString = function (){
@@ -87,8 +93,6 @@ fn.toString = function (){
 }
 console.log(fn + 10) // 20
 console.log(fn + 'hello') //10hello
-```
-```
 fn.valueOf = function () {
   return 5;
 }
