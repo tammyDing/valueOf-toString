@@ -74,18 +74,21 @@ function fn () {
 console.log(fn + 10)
 ```
 返回结果：
+```
 function fn () {
   return 20;
 }10
+```
 
 ```
 console.log(fn + 'hello')
 ```
 结果：
+```
 function fn () {
   return 20;
 }hello
-
+```
 
 ```
 fn.toString = function (){
