@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>NodeJS Read This File</title>
+</head>
+<body>
+  <p>Hello, Tammy.</p>
+</body>
+<script type="text/javascript">
+var x = {
+  toString: function () {
+    return 'foo'
+  },
+  valueOf: function () {
+    return 42
+  }
+}
+alert(x) //弹出foo
+console.log('x='+x) //x=42
+console.log(x+'=x') //42=x
+console.log(x+'1') //421
+console.log(x+1) //43
+console.log(['x+', x].join('')) // x+foo
+
+// var obj = {}
+// console.log(obj+10) // [object object]10
+// console.log(obj+'hello') // [object object]hello
+// var arr = [1,2,3,5]
+// console.log(arr+20) // 1,2,3,520
+// console.log(arr+'hello') // 1,2,3,5hello
+// var date = new Date(0)
+// console.log(date.toString()) //Thu Jan 01 1970 08:00:00 GMT+0800 (中国标准时间) 
+// console.log(date.valueOf()) //0
+// console.log(date+1) //Thu Jan 01 1970 08:00:00 GMT+0800 (中国标准时间)1
+
+
+// function fn () {
+//   return 20;
+// }
+// console.log(fn + 10)
+// // 结果：
+// // function fn () {
+// //   return 20;
+// // }10
+// console.log(fn + 'hello')
+// // 结果：
+// // function fn () {
+// //   return 20;
+// // }hello
+// fn.toString = function (){
+//   return 10;
+// }
+// console.log(fn + 10) // 20
+// console.log(fn + 'hello') //10hello
+
+// fn.valueOf = function () {
+//   return 5;
+// }
+// console.log(fn + 10) //15
+// console.log(fn + 'hello') //5hello
+
+
+
+// var obj = {}
+// obj.valueOf() // {}
+// var x = [1,2,3]
+// x.valueOf() // [1,2,3]
+// var y = function(){console.log('valueOf')}
+// y.valueOf() // function(){console.log('valueof')}
+// var z = 123
+// z.valueOf() // 123
+
+
+
+
+
+// var obj = {}
+// // toString特殊情况
+// console.log(obj.toString()) // [object object]
+// console.log(toString.call(new Date)) // [object Date]
+// console.log(toString.call(new String)) // [object String]
+// console.log(toString.call(Math)) // [object Math]
+// console.log(toString.call(window)) // [object Window]
+// console.log(toString.call(undefined)) // [object undefined]
+// console.log(toString.call(null)) // [object null]
+// // 其他类型的toString
+// var arr = [1,2,3,4]
+// console.log(arr.toString()) // "1,2,3,4"
+// var str = '1234'
+// console.log(str.toString()) // "1234"
+// var fn = function () { console.log('fn') }
+// console.log(fn.toString()) // "function () { console.log('fn') }"
+// // toString与valueOf什么情况下先执行
+// var object = {
+//   toString:function(){
+//     console.log('toString')
+//     return Object.prototype.toString.call(this)
+//   },
+//   valueOf:function(){
+//     console.log('valueOf')
+//     return Object.prototype.valueOf.call(this)
+//   }
+// }
+// alert(object) // 控制台:toString 弹出[object object] 控制台:valueOf
+// alert(+object) // NaN 控制台:toString
+// alert(object=={}) // false
+// alert(object==={}) // false
+// alert(object=='test') // 弹出false 控制台valueOf toString
+// alert(object==='test') // false
+
+// obj.toString = function () { return 'a new toString'}
+// console.log(obj+' hello') // a new toString hello
+</script>
+</html>
