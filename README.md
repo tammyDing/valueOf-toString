@@ -137,3 +137,57 @@ console.log(x+'1') //421
 console.log(x+1) //43
 console.log(['x+', x].join('')) // x+foo
 ```
+
+
+
+### valueOf相关的面试题
+
+#### 1.如何使if(v == 2 && v == 4 && v == 8)
+
+```
+const v = {
+	value: 2,
+	valueOf: function () {
+		return Math.pow(2, v.value++)
+}
+}
+const equ = (v==2 && v==4 && v==8)
+console.log(equ); //true
+```
+
+#### 2.The question is : can (a==1 && a==2 && a=3) ever evaluate to true? The answer is Yes.
+```
+const a = {
+	currentVal: 0,
+	valueOf: function () {
+		return this.currentVal += 1
+}
+}
+const equality = (a==1&&a==2&&a=3)
+console.log(equality) // true
+```
+
+##### 解析：隐式类型转换，在对象上执行类型转换时，JavaScript首先尝试调用该对象的valueOf()方法。 
+Object.prototype.valueOf() 每个对象都有valueOf方法，返回正在调用的对象。
+const b = {num: 0}
+console.log(b.valueOf()) //返回对象本身:{num: 0}
+console.log(typeof b.valueOf()) // 使用typeof验证返回的对象:object
+重新定义valueOf方法返回调用它的值
+```
+b.valueOf = function () {
+	return this.num;
+}
+console.log(b.valueOf); //0
+console.log(typeof b.valueOf()) //number
+console.log(b.num == b.valueOf()) //true
+```
+此时执行
+```
+b == 0 
+// true
+```
+
+参考资料：
+https://codeburst.io/javascript-can-a-1-a-2-a-3-ever-evaluate-to-true-aca13ff4462d
+
+
